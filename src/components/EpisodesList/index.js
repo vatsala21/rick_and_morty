@@ -21,7 +21,6 @@ const EpisodesList = (props) => {
     const fetchPage = (pageUrl) => {
         axios.get(`${pageUrl}`)
             .then((response) => {
-                console.log('fetchPage Response:', response);
                 setAllEpisode(response.data.results)
                 setPrevPage(response.data.info.prev);
                 setNextPage(response.data.info.next);
@@ -33,7 +32,6 @@ const EpisodesList = (props) => {
         fetchAllEpisodes(query);
     }, [props.episodeToSearch]);
 
-    // console.log('episodes:', episodes);
     return (
         <div className='episodeListContnainer'>
             <Container fluid>
@@ -56,7 +54,7 @@ const EpisodesList = (props) => {
                 </Row>
                 <Row>
                     <Col>
-                        <Table borderless hover responsive>
+                        <Table borderless hover responsive variant="dark">
                             <thead>
                                 <tr>
                                 <th>Episode Name</th>
